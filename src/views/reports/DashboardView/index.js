@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Container,
   Grid,
+  Box,
   makeStyles
 } from '@material-ui/core';
 import Page from 'src/components/Page';
@@ -13,6 +14,9 @@ import TasksProgress from './TasksProgress';
 import TotalCustomers from './TotalCustomers';
 import TotalProfit from './TotalProfit';
 import TrafficByDevice from './TrafficByDevice';
+import ApprovalTable from './ApprovalTable';
+import data from '../../customer/CustomerListView/data';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,11 +24,25 @@ const useStyles = makeStyles((theme) => ({
     minHeight: '100%',
     paddingBottom: theme.spacing(3),
     paddingTop: theme.spacing(3)
+  },
+  avatar: {
+    marginRight: theme.spacing(2)
   }
 }));
 
 const Dashboard = () => {
   const classes = useStyles();
+  const [customers] = useState(data);
+  const [limit, setLimit] = useState(10);
+  const [page, setPage] = useState(0);
+
+  const handleLimitChange = (event) => {
+    setLimit(event.target.value);
+  };
+
+  const handlePageChange = (event, newPage) => {
+    setPage(newPage);
+  };
 
   return (
     <Page
@@ -36,42 +54,47 @@ const Dashboard = () => {
           container
           spacing={3}
         >
-          <Grid
-            item
-            lg={3}
-            sm={6}
-            xl={3}
-            xs={12}
-          >
-            <Budget />
-          </Grid>
-          <Grid
-            item
-            lg={3}
-            sm={6}
-            xl={3}
-            xs={12}
-          >
-            <TotalCustomers />
-          </Grid>
-          <Grid
-            item
-            lg={3}
-            sm={6}
-            xl={3}
-            xs={12}
-          >
-            <TasksProgress />
-          </Grid>
-          <Grid
-            item
-            lg={3}
-            sm={6}
-            xl={3}
-            xs={12}
-          >
-            <TotalProfit />
-          </Grid>
+          {
+            // <Grid
+            //           item
+            //           lg={3}
+            //           sm={6}
+            //           xl={3}
+            //           xs={12}
+            //         >
+            //           <Budget />
+            //         </Grid>
+            //         <Grid
+            //           item
+            //           lg={3}
+            //           sm={6}
+            //           xl={3}
+            //           xs={12}
+            //         >
+            //           <TotalCustomers />
+            //         </Grid>
+            //         <Grid
+            //           item
+            //           lg={3}
+            //           sm={6}
+            //           xl={3}
+            //           xs={12}
+            //         >
+            //           <TasksProgress />
+            //         </Grid>
+            //         <Grid
+            //           item
+            //           lg={3}
+            //           sm={6}
+            //           xl={3}
+            //           xs={12}
+            //         >
+            //           <TotalProfit />
+            //         </Grid>
+          }
+          <Box mt={3}>
+            <ApprovalTable customers={customers} />
+          </Box>
           <Grid
             item
             lg={8}

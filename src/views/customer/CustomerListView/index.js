@@ -8,6 +8,7 @@ import Page from 'src/components/Page';
 import Results from './Results';
 import Toolbar from './Toolbar';
 import data from './data';
+import { getUsers } from 'src/utils/userMethods';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,7 +21,13 @@ const useStyles = makeStyles((theme) => ({
 
 const CustomerListView = () => {
   const classes = useStyles();
-  const [customers] = useState(data);
+  const [customers, updateCustomers] = useState(data);
+  const [page, setPage] = useState(0);
+
+  const searchUsers = async (query, type) => {
+
+    await getUsers(page, type);
+  }
 
   return (
     <Page
@@ -28,9 +35,9 @@ const CustomerListView = () => {
       title="Customers"
     >
       <Container maxWidth={false}>
-        <Toolbar />
+        <Toolbar searchUsers={searchUsers} />
         <Box mt={3}>
-          <Results customers={customers} />
+          <Results customers={customers} page={page} setPage={setPage} />
         </Box>
       </Container>
     </Page>

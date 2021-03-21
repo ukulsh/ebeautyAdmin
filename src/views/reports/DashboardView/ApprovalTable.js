@@ -26,11 +26,11 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const Results = ({ className, customers, page, setPage, ...rest }) => {
+const Results = ({ className, customers, ...rest }) => {
   const classes = useStyles();
   const [selectedCustomerIds, setSelectedCustomerIds] = useState([]);
   const [limit, setLimit] = useState(10);
-  
+  const [page, setPage] = useState(0);
 
   const handleSelectAll = (event) => {
     let newSelectedCustomerIds;
