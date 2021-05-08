@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API = process.env.REACT_APP_API
+const API = process.env.REACT_APP_API_URL;
 const options = {
 	'content-type': 'application/json'
 };
@@ -10,7 +10,7 @@ export async function login(data, success, failure) {
 	data = {...data, notificationId: '45'};
 
 	axios
-		.post(`${API}accounts/login`, data, {
+		.post(`${API}/accounts/login`, data, {
 			headers: options
 		})
 		.then(res => {

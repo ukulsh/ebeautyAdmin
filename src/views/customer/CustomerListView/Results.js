@@ -72,6 +72,10 @@ const Results = ({ className, customers, page, setPage, ...rest }) => {
     setPage(newPage);
   };
 
+  const approved = <span style={{backgroundColor:'green', padding:'4px', color:'white', borderRadius:'5px'}}>Yes</span>;
+  const notApproved = <span style={{backgroundColor:'red', padding:'4px', color:'white', borderRadius:'5px'}}>No</span>;
+  const pending = <span style={{backgroundColor:'#30b398', padding:'4px', color:'white', borderRadius:'5px'}}>N/A</span>;
+
   return (
     <Card
       className={clsx(classes.root, className)}
@@ -147,10 +151,10 @@ const Results = ({ className, customers, page, setPage, ...rest }) => {
                     {customer.email}
                   </TableCell>
                   <TableCell>
-                    {`${customer.isSeller ? 'Yes' : 'No'}`}
+                    {customer.isSeller ? 'Yes' : 'No'}
                   </TableCell>
                   <TableCell>
-                    {customer.sellerIsApproved}
+                    {customer.isSeller ? (customer.sellerIsApproved == 'true' ? approved : notApproved ): pending}
                   </TableCell>
                   <TableCell>
                     {moment(customer.created).format('DD/MM/YYYY')}
@@ -168,7 +172,7 @@ const Results = ({ className, customers, page, setPage, ...rest }) => {
         onChangeRowsPerPage={handleLimitChange}
         page={page}
         rowsPerPage={limit}
-        rowsPerPageOptions={[5, 10, 25]}
+        rowsPerPageOptions={['']}
       />
     </Card>
   );

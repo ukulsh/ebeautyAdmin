@@ -96,7 +96,7 @@ const Toolbar = ({ className, searchUsers, ...rest }) => {
                     <MenuItem value="">
                       <em>None</em>
                     </MenuItem>
-                    <MenuItem value={''}>All</MenuItem>
+                    <MenuItem value={'all'}>All</MenuItem>
                     <MenuItem value={'customers'}>Customers</MenuItem>
                     <MenuItem value={'beauticians'}>Beauticians</MenuItem>
                   </Select>

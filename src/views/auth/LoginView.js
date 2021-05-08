@@ -101,7 +101,7 @@ export default function SignInSide() {
 
     function success(data) {
       authenticateAdmin(data, function() {
-        navigate('/app/dashboard')
+        navigate('/app/customers')
       })
     }
 
