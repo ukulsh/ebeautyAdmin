@@ -100,10 +100,10 @@ const Results = ({ className, customers, page, setPage, ...rest }) => {
                   Email
                 </TableCell>
                 <TableCell>
-                  Location
+                  Beautician
                 </TableCell>
                 <TableCell>
-                  Phone
+                  Approved
                 </TableCell>
                 <TableCell>
                   Registration date
@@ -147,13 +147,13 @@ const Results = ({ className, customers, page, setPage, ...rest }) => {
                     {customer.email}
                   </TableCell>
                   <TableCell>
-                    {`${customer.address.city}, ${customer.address.state}, ${customer.address.country}`}
+                    {`${customer.isSeller ? 'Yes' : 'No'}`}
                   </TableCell>
                   <TableCell>
-                    {customer.phone}
+                    {customer.sellerIsApproved}
                   </TableCell>
                   <TableCell>
-                    {moment(customer.createdAt).format('DD/MM/YYYY')}
+                    {moment(customer.created).format('DD/MM/YYYY')}
                   </TableCell>
                 </TableRow>
               ))}

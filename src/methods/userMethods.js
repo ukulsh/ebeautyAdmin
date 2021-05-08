@@ -5,9 +5,8 @@ const options = {
 	'content-type':'application/json'
 };
 
-export const getUsers = (page=0) => {
+export const getUsers = (data, page=0, type, success, failure) => {
 
-	const data=null;
 
 	axios.
 		post(`${API}/users?page=${page}`, data, {
@@ -15,6 +14,13 @@ export const getUsers = (page=0) => {
 		})
 		.then(res => {
 			console.log(res);
+
+			if(res.data.success) {
+				success(res.data);
+			} else {
+				console.log('failed fetching users - from userMethods');
+				failure();
+			}
 		})
 
 }
