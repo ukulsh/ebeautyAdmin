@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.js": "/ebeautyAdmin/static/js/main.c2b04107.chunk.js",
+    "main.js.map": "/ebeautyAdmin/static/js/main.c2b04107.chunk.js.map",
+    "runtime-main.js": "/ebeautyAdmin/static/js/runtime-main.53d96b47.js",
+    "runtime-main.js.map": "/ebeautyAdmin/static/js/runtime-main.53d96b47.js.map",
+    "static/css/2.847a128f.chunk.css": "/ebeautyAdmin/static/css/2.847a128f.chunk.css",
+    "static/js/2.8e1ece15.chunk.js": "/ebeautyAdmin/static/js/2.8e1ece15.chunk.js",
+    "static/js/2.8e1ece15.chunk.js.map": "/ebeautyAdmin/static/js/2.8e1ece15.chunk.js.map",
+    "index.html": "/ebeautyAdmin/index.html",
+    "static/css/2.847a128f.chunk.css.map": "/ebeautyAdmin/static/css/2.847a128f.chunk.css.map",
+    "static/js/2.8e1ece15.chunk.js.LICENSE.txt": "/ebeautyAdmin/static/js/2.8e1ece15.chunk.js.LICENSE.txt",
+    "static/media/bg.53035973.jpg": "/ebeautyAdmin/static/media/bg.53035973.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.53d96b47.js",
+    "static/css/2.847a128f.chunk.css",
+    "static/js/2.8e1ece15.chunk.js",
+    "static/js/main.c2b04107.chunk.js"
+  ]
+}
